@@ -14,7 +14,6 @@ class Succulent {
     String origin;
     String prop;
     
-
     Succulent({this.key ,this.img, this.name , this.sname , this.description , this.light , this.temp ,this.water ,this.origin, this.prop});
 
     factory Succulent.fromFirestoreDocumentSnapshot(DocumentSnapshot data){
