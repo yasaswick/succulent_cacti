@@ -1,4 +1,3 @@
-import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -14,18 +13,17 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Firebasedb _firebasedb = Firebasedb();
-  int _currentindex;
+  int currentindex;
 
   @override
   void initState() {
-    _currentindex = 0;
-    // TODO: implement initState
+    currentindex = 0;
     super.initState();
   }
 
  void changePage(int index){
    setState(() {
-     _currentindex = index;
+     currentindex = index;
    });
   }
 
