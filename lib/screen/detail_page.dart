@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:succulentcactus/assets/colors.dart';
 import 'package:succulentcactus/model/succulent.dart';
 
 class DetailPage extends StatelessWidget {
@@ -10,6 +11,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: background,
       body: Container(
         child: ListView(
           children: <Widget>[
@@ -17,6 +19,7 @@ class DetailPage extends StatelessWidget {
               height: 350,
               child: Stack(
                 children: <Widget>[
+                  
                   Container(
                       width: MediaQuery.of(context).size.width,
                       height: 300,
@@ -24,6 +27,18 @@ class DetailPage extends StatelessWidget {
                         imageUrl: succulent.img,
                         fit: BoxFit.cover,
                       )),
+                //       Container(
+                //   decoration: BoxDecoration(
+                //       gradient: LinearGradient(
+                //      begin: FractionalOffset.bottomCenter,
+                //     end: FractionalOffset.topCenter,
+                //     colors: [
+                //       Colors.black.withOpacity(0.0),
+                //       Colors.black,
+                //     ],
+                //   )),
+                //   height: 200,
+                // ),
                   Positioned(
                     child: Container(
                       height: 50,
@@ -47,30 +62,36 @@ class DetailPage extends StatelessWidget {
                       left: 20,
                       top: 250,
                       child: Container(
-                        padding: EdgeInsets.only(left: 30),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              this.succulent.name ?? '',
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white),
-                            ),
-                            SizedBox(height: 5),
-                            Text(
-                              this.succulent.sname ?? '',
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.white70),
-                            ),
-                          ],
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                        boxShadow: [BoxShadow(color: Colors.black54 , blurRadius: 5, spreadRadius: 5 , offset: Offset(0, 0) )],
+                        color: banner,
+                        borderRadius: BorderRadius.circular(3)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                this.succulent.name ?? '',
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                this.succulent.sname ?? '',
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  
+                                    fontSize: 18, color: Colors.white70),
+                              ),
+                            ],
+                          ),
+                          height: 100,
+                          width: MediaQuery.of(context).size.width - 40,
                         ),
-                        color: Colors.black,
-                        height: 100,
-                        width: MediaQuery.of(context).size.width - 40,
-                      ))
+                      )
                 ],
               ),
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:succulentcactus/assets/colors.dart';
 import 'package:succulentcactus/db/firebasedb.dart';
 import 'package:succulentcactus/model/succulent.dart';
 import 'package:succulentcactus/screen/addsucculents.dart';
@@ -32,6 +33,7 @@ class _HomeState extends State<Home> {
     return StreamProvider<List<Succulent>>.value(
           value: _firebasedb.succulentList(),
           child: Scaffold(
+            backgroundColor: background,
         body: Container(
         
          margin: MediaQuery.of(context).padding,
@@ -61,7 +63,7 @@ class _HomeState extends State<Home> {
           ],)
         )
         ,
-        floatingActionButton: FloatingActionButton( child: Icon(Icons.add), onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context) => AddSucculent())) )
+       //floatingActionButton: FloatingActionButton( child: Icon(Icons.add), onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context) => AddSucculent())) )
 
       ),
     );

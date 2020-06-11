@@ -19,7 +19,7 @@ class _SucculentGridState extends State<SucculentGrid> {
       gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
-        childAspectRatio: .5,
+        childAspectRatio: .7,
         crossAxisCount: 2), 
       itemBuilder: (_,index){
         return SucculentCard(succulent: succulents[index],);
